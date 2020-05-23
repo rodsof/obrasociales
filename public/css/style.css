@@ -2078,6 +2078,10 @@ p {
 /*===========================
       20.CONTACT css 
 ===========================*/
+.contact-form {
+  background-color: white;
+  opacity: 100%;
+}
 .contact-area {
   padding-top: 95px;
   padding-bottom: 100px;

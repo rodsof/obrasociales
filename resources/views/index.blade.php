@@ -123,9 +123,58 @@
                             <div class="carousel-caption">
                                 <div class="container">
                                     <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                   
+                                        <div class="col-xl-5 col-lg-5 col-sm-6">
+                                        <h1 class="carousel-title"> COTIZÁ YA! </h1>
                                             <h2 class="carousel-title">Todas las Coberturas Médicas</h2>
                                         </div>
+                                        <div class="contact-form form-style-one mt-35 wow fadeIn col-xl-7 col-lg-7 col-sm-6" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                        <form  id="contact-form" action="{{url('sendemail/send')}}" method="post">
+                        {{ csrf_field() }}
+                            <div class="form-input mt-15">
+                                <label>Nombre</label>
+                                <div class="input-items default">
+                                    <input type="text" placeholder="¿Cuál es su nombre?" name="nombre" required>
+                                    <i class="lni-user"></i>
+                                </div>
+                            </div> <!-- form input -->
+                            <div class="form-input mt-15">
+                                <label>Email</label>
+                                <div class="input-items default">
+                                    <input type="email" placeholder="Por ejemplo: ipsum@gmail.com" name="email" required />
+                                    <i class="lni-envelope"></i>
+                                </div>
+                            </div> <!-- form input -->
+                            <div class="form-input mt-15">
+                                <label>Mensaje</label>
+                                <div class="input-items default">
+                                    <textarea placeholder="¿Cuál es su consulta?" name="mensaje" required></textarea>
+                                    <i class="lni-pencil-alt"></i>
+                                </div>
+                            </div> <!-- form input -->
+                            <p class="form-message"></p>
+                            <div class="form-input rounded-buttons mt-20">
+                                <button type="submit" class="main-btn rounded-three">ENVIAR</button>
+                            </div> <!-- form input -->
+                            <!-- messages from server -->
+                            @if (count($errors) > 0)
+		<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>
+		@foreach ($errors->all() as $error)
+		<li>{{ $error }}</li>
+		@endforeach
+		</ul>
+		</div>
+	@endif
+	@if ($message = Session::get('success'))
+	<div class="alert alert-success alert-block">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>{{ $message }}</strong>
+	</div>
+	@endif <!-- end of messages from server -->
+                        </form>
+                    </div> <!-- contact form -->
                                     </div> <!-- row -->
                                 </div> <!-- container -->
                             </div> <!-- carousel caption -->
@@ -182,14 +231,14 @@
                             <div class="form-input mt-15">
                                 <label>Email</label>
                                 <div class="input-items default">
-                                    <input type="email" placeholder="Por ejemplo: loremipsum@gmail.com" name="email">
+                                    <input type="email" placeholder="Por ejemplo: ipsum@gmail.com" name="email">
                                     <i class="lni-envelope"></i>
                                 </div>
                             </div> <!-- form input -->
                             <div class="form-input mt-15">
                                 <label>Mensaje</label>
                                 <div class="input-items default">
-                                    <textarea placeholder="¿Cuál es su consulta?" name="massage"></textarea>
+                                    <textarea placeholder="¿Cuál es su consulta?" name="mensaje"></textarea>
                                     <i class="lni-pencil-alt"></i>
                                 </div>
                             </div> <!-- form input -->
@@ -628,38 +677,38 @@ entre los que conforman un grupo empresario gravitante en el interior del país.
                         <h4 class="contact-title">Vamos a ayudarte a encontrar la obra social y el plan más adecuados</h4>
                         <p class="text">Tu salud y tu bienestar son nuestra prioridad. Enviános un mensaje con el tipo de prestación al que te interesaría acceder y nosotros te ayudamos a buscar la compañía y el plan que mejor se ajuste.</p>
                         <ul class="contact-info">
-                            <li><i class="lni-money-location"></i> Cabildo 500, CABA</li>
-                            <li><i class="lni-phone-handset"></i> +54 2312232</li>
+                         
                         </ul>
                     </div> <!-- contact two -->
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-form form-style-one mt-35 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s">
-                        <form  id="contact-form" action=" contact.php" method="post">
+                        <form  id="contact-form" action="{{url('sendemail/send')}}" method="post">
+                        {{ csrf_field() }}
                             <div class="form-input mt-15">
                                 <label>Nombre</label>
                                 <div class="input-items default">
-                                    <input type="text" placeholder="Nombre" name="name">
+                                    <input type="text" placeholder="Nombre" name="nombre" required>
                                     <i class="lni-user"></i>
                                 </div>
                             </div> <!-- form input -->
                             <div class="form-input mt-15">
                                 <label>Email</label>
                                 <div class="input-items default">
-                                    <input type="email" placeholder="Email" name="email">
+                                    <input type="email" placeholder="Email" name="email" required>
                                     <i class="lni-envelope"></i>
                                 </div>
                             </div> <!-- form input -->
                             <div class="form-input mt-15">
                                 <label>Mensaje</label>
                                 <div class="input-items default">
-                                    <textarea placeholder="Mensaje" name="massage"></textarea>
+                                    <textarea placeholder="Mensaje" name="mensaje" required></textarea>
                                     <i class="lni-pencil-alt"></i>
                                 </div>
                             </div> <!-- form input -->
                             <p class="form-message"></p>
                             <div class="form-input rounded-buttons mt-20">
-                                <button type="submit" class="main-btn rounded-three">Submit</button>
+                                <button type="submit" class="main-btn rounded-three">Enviar</button>
                             </div> <!-- form input -->
                         </form>
                     </div> <!-- contact form -->
